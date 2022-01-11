@@ -6,7 +6,7 @@ sidebar_position: 1
 ## Overview
 A role collection is a fluent, and convenient wrapper for working with the role instances. 
 
-Most times you will find yourself working with the `Tarzancodes\RolesAndPermissions\Collections\RoleCollection` class. This class is an extension of laravel `Illuminate\Support\Collection`, and allows you chain laravel's collection methods to filter or alter the values.
+Most times you will find yourself working with the `Ajimoti\RolesAndPermissions\Collections\RoleCollection` class. This class is an extension of laravel `Illuminate\Support\Collection`, and allows you chain laravel's collection methods to filter or alter the values.
 
 :::tip
 New to laravel collections? You can read up on how to use [collections here](https://laravel.com/docs/8.x/collections)

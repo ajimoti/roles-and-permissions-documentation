@@ -4,25 +4,27 @@ title: 'Model'
 ---
 
 ## Overview
-The roles and permissions package can be used on any model. The first step is to import the `Tarzancodes\RolesAndPermissions\HasRoles` trait in your model. Once imported, an instance of the model can now be assigned roles and permissions.
+The roles and permissions package can be used on any model. The first step is to import the `Ajimoti\RolesAndPermissions\HasRoles` trait in your model. Once imported, an instance of the model can now be assigned roles and permissions.
 
 :::caution
 As stated in the previous chapter, for the package to work fine, ensure you do not have any of the following methods in your model file. 
 
-`assign()`, `of()` `holds()`, `hasRole()`, `hasRoles()`, `authorize()`, `authorizeRole()`, `authorizeRoles()`, `removeRole()`, `removeRoles()`, `modelRoles()`
+`assign()`, `of()` `holds()`, `hasRole()`, `hasRoles()`, `authorize()`, `authorizeRole()`, `authorizeRoles()`, `removeRole()`, `removeRoles()`, `modelRoles()`, `give()`, `revoke()`, `directPermissions()`
 :::
 
 ## How it works
-When a model is assigned a role, the model inherits the permissions associated with the role. You will learn more about how to associate permissions with roles in the next chapter.
+When a model is assigned a role, the model inherits the permissions associated with the role. Additionally, permissions can be assigned directly to the model.
+
+You will learn more about how to associate permissions with roles in the next chapter.
 
 ## Quick Sample
-Here is an illustration of how to import and use the `HasRole` trait on a model. 
+Here is an illustration of how to use the package on a model. For better understanding, we will be using the `user` model in most of our examples. 
 
-For better understanding, we will use the `user` model as an example. 
+The first step is to import and use the `HasRole` trait on a model. 
 
 ```php title="app\Models\User.php" {2,6}
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Tarzancodes\RolesAndPermissions\HasRoles;
+use Ajimoti\RolesAndPermissions\HasRoles;
 
 class User extends Authenticatable
 {
@@ -33,7 +35,7 @@ class User extends Authenticatable
 
 From the example above, we have imported the `HasRole` trait, and used it in the class; therefore an instance of the `App\Models\User` class can now be assigned roles and permissions.
 
-After assigned roles the model inherits the permissions associated with the assigned roles.
+After assigned roles, the model inherits the permissions associated with the assigned roles.
 
 :::note
 You will later learn how to associate permissions with roles in the [enum files section](https://blah.com).
@@ -62,7 +64,7 @@ Get every role that has been assigned to a model.
 // Get user roles
 $user->roles(); // returns a collection of the user roles
 ```
-The method returns a `Tarzancodes\RolesAndPermissions\Collections\RoleCollection` instance containing every role that has been assigned to the model. 
+The method returns a `Ajimoti\RolesAndPermissions\Collections\RoleCollection` instance containing every role that has been assigned to the model. 
 
 Similar to laravel's collection instances, you can loop through the role collection to access individual roles.
 
@@ -89,7 +91,7 @@ Below is a table explaining how the properties of the object are set.
 |`description`|This is a conversion of the constant to `constant` to `sentence case`. You can use the `getDescription($value)` method to overwrite this behavior. _(you will learn more about this on the enum page)_. |
 
 :::tip
-`Tarzancodes\RolesAndPermissions\Collections\RoleCollection` is an extension of laravel `Illuminate\Support\Collection`. This means you can treat the `roles()` response as a laravel collection. You can chain any method to e.g `$user->roles()->toArray()`
+`Ajimoti\RolesAndPermissions\Collections\RoleCollection` is an extension of laravel `Illuminate\Support\Collection`. This means you can treat the `roles()` response as a laravel collection. You can chain any method to e.g `$user->roles()->toArray()`
 
 We will better explain how to use the `RoleCollection` in the digging deep section.
 ::: 
@@ -235,7 +237,7 @@ $user->give(Permission::DeleteTransactions, Permission::DestroyEnemies);
 $user->holds(Permission::DeleteProducts) // returns true
 ```
 
-When a model is assigned a permission directly, the permission is also made available when the `->permissions()` method is called. Similarly, the `holds($permissions)` and `authorize($permissions)` methods will also true if the given permission is also passed as an argument.
+When a model is given a permission directly, the permission is also made available when the `->permissions()` method is called. Similarly, the `holds($permissions)` and `authorize($permissions)` methods will also true if the given permission is also passed as an argument.
 ### revoke($permissions) : bool
 Revoke permissions that were directly given to a model.
 ```php

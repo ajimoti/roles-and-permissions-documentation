@@ -20,7 +20,7 @@ Below is a sample of what a `app\Enums\Role.php` class looks like:
 
 namespace App\Enums;
 
-use Tarzancodes\RolesAndPermissions\Helpers\BaseRole;
+use Ajimoti\RolesAndPermissions\Helpers\BaseRole;
 
 final class Role extends BaseRole
 {
@@ -88,11 +88,11 @@ You can get all the available roles:
 ```php
 use App\Enums\Role;
 
-$roles = Role::all(); // returns an instance of Tarzancodes\RolesAndPermissions\Collections\RoleCollection
+$roles = Role::all(); // returns an instance of Ajimoti\RolesAndPermissions\Collections\RoleCollection
 ```
 
 :::note
-You will learn more about `Tarzancodes\RolesAndPermissions\Collections\RoleCollection` in the [collections section](https://blah.com)
+You will learn more about `Ajimoti\RolesAndPermissions\Collections\RoleCollection` in the [collections section](https://blah.com)
 :::
 
 ## Instantiation

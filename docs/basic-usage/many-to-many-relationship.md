@@ -53,13 +53,13 @@ For the package to work fine, ensure you do not have any of the following method
 :::  -->
 
 ## Quick Sample
-The first step is to import the `Tarzancodes\RolesAndPermissions\HasRoles` trait, and have a `belongs-to-many` relationship of the pivot table on the model.
+The first step is to import the `Ajimoti\RolesAndPermissions\HasRoles` trait, and have a `belongs-to-many` relationship of the pivot table on the model.
 
 From the above database structure, here is an illustration of what the user model should look like: 
 
 ```php title="app\Models\User.php" {2,6,9-12}
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Tarzancodes\RolesAndPermissions\HasRoles;
+use Ajimoti\RolesAndPermissions\HasRoles;
 
 class User extends Authenticatable
 {
@@ -77,7 +77,7 @@ After importing the `HasRoles` trait and having the `BelongsToMany` relationship
 
 After doing the above, the `HasRole` trait provides a `of()` method that can be used to perform roles and permissions related logic between two models via the `belongs to many` relationship.
 
-The `of()` method returns an instance of `Tarzancodes\RolesAndPermissions\Repositories\BelongsToManyRepository` class, which also has all the [available methods](https://blah.com).
+The `of()` method returns an instance of `Ajimoti\RolesAndPermissions\Repositories\BelongsToManyRepository` class, which also has all the [available methods](https://blah.com).
 
 :::info 
 When the `of()` method is chained to a model, the package will automatically use Laravel relationship naming convention to guess the relationship name. Alternatively you can pass the relationship name as the second argument.
@@ -108,7 +108,7 @@ Get every role that has been assigned to the user of a merchant.
 // Get user roles at the merchant
 $user->of($merchant)->roles(); // returns a collection of the user roles
 ```
-The method returns a `Tarzancodes\RolesAndPermissions\Collections\RoleCollection` instance containing every role that has been assigned to the model. 
+The method returns a `Ajimoti\RolesAndPermissions\Collections\RoleCollection` instance containing every role that has been assigned to the model. 
 
 Similar to laravel's collection instances, you can loop through the role collection to access individual roles.
 
@@ -227,7 +227,7 @@ By default, the pivot record will not deleted. Instead, the `role` column of tha
 <?php
 namespace App\Enums;
 
-use Tarzancodes\RolesAndPermissions\Helpers\BaseRole;
+use Ajimoti\RolesAndPermissions\Helpers\BaseRole;
 
 final class Role extends BaseRole
 {

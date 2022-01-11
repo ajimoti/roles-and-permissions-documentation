@@ -17,7 +17,7 @@ Built and written by [Ajimoti Ibukun](https://www.linkedin.com/in/ibukun-ajimoti
 
 <!-- ### Basic Usage (on a Model) -->
 ### On a Model
-Import the `App\Enums\Role` and `App\Enums\Permission` class.
+The example blow explains how to use the package on a model after installation.  
 
 ```php title="app\Http\Controllers\HomeController.php"
 use App\Enums\Role;
@@ -35,7 +35,6 @@ $user->can(Permission::DeleteTransactions);
 // Check if the user has multiple permissions
 $user->holds(Permission::DeleteTransactions, Permission::BlockUsers);
 ```
-The example above explains how to assign roles, and permissions to a `User` model after importing the package on the model. 
 
 ### Pivot table (many to many relationship)
 This demonstrates how to use the package on a `many to many` relationship.

@@ -19,7 +19,7 @@ Below is an example of what the class looks like:
 <?php
 namespace App\Enums;
 
-use Tarzancodes\RolesAndPermissions\Helpers\BasePermission;
+use Ajimoti\RolesAndPermissions\Helpers\BasePermission;
 
 final class Permission extends BasePermission
 {
@@ -38,11 +38,11 @@ You can get all the available permissions:
 ```php
 use App\Enums\Permission;
 
-$permissions = Permission::all(); // returns an instance of Tarzancodes\RolesAndPermissions\Collections\PermissionCollection
+$permissions = Permission::all(); // returns an instance of Ajimoti\RolesAndPermissions\Collections\PermissionCollection
 ```
 
 :::note
-You will learn more about `Tarzancodes\RolesAndPermissions\Collections\PermissionCollection` in the [collections section](https://blah.com)
+You will learn more about `Ajimoti\RolesAndPermissions\Collections\PermissionCollection` in the [collections section](https://blah.com)
 :::
 
 ## Instantiation

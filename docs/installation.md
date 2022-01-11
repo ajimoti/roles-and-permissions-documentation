@@ -6,7 +6,7 @@ sidebar_position: 3
 <!-- ## Pre-installation -->
 You can install the package via composer:
 ```bash
-composer require tarzan-codes/roles-and-permissions
+composer require ajimoti/roles-and-permissions
 ```
 
 If you have existing pivot tables that you want to apply the package on, you can add the table names to the `pivot.tables` array in the `config/roles-and-permissions.php` config file. This command below will add a `role` column to each tables.
@@ -21,28 +21,27 @@ The above command does the following:
 - Creates a `app\Enums\Role.php` file with sample roles.
 - Creates a `app\Enums\Permission.php` file with sample permissions.
 - Creates a `model_role` table which will be used to link `models` and `roles`.
+- Creates a `model_permission` table which will be used to link `models` and `permissions`.
 - Adds a `role` column to every pivot table listed in the `pivot.tables` array on the `config/roles-and-permissions.php` (if any).
 
 ## After installation
-After installing the package, a `Tarzancodes\RolesAndPermissions\HasRoles` trait is made available to your application. This trait enables smooth communication between your models and the package.
+After installing the package, a `Ajimoti\RolesAndPermissions\HasRoles` trait is made available to your application. This trait enables smooth communication between your models and the package.
 
 ### Importing the trait:
 To assign roles and permissions to an eloquent object, you have to import the trait in the eloquent class.
 
 For better understanding, we will be using the `App\Models\User` model in most of our examples, but the package use _**is not**_ limited to the user model alone, it can be used on any eloquent model.
 
-For the package to work fine, ensure you _**do not**_ have a `repository` property on your model, and that you have not overwritten the `__construct()` method in your model file.
-
-Additionally, your model **must not** have any of the methods listed below as this will interfere with how the package interacts with your model:
+Additionally, for the package to work fine, your model **must not** have any of the methods listed below as this will interfere with how the package interacts with your model:
 
 :::caution methods not allowed
-`assign()`, `of()` `holds()`, `hasRole()`, `hasRoles()`, `authorize()`, `authorizeRole()`, `authorizeRoles()`, `removeRole()`, `removeRoles()`, `modelRoles()`  
+`assign()`, `of()` `holds()`, `hasRole()`, `hasRoles()`, `authorize()`, `authorizeRole()`, `authorizeRoles()`, `removeRole()`, `removeRoles()`, `modelRoles()`, `give()`, `revoke()`, `directPermissions()`  
 :::   
 
 Below is an example of how to import and use the trait:
 ```php title="app\Models\User.php" {2,6}
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Tarzancodes\RolesAndPermissions\HasRoles;
+use Ajimoti\RolesAndPermissions\HasRoles;
 
 class User extends Authenticatable
 {
@@ -68,3 +67,6 @@ We will touch on how to use each one of them in the next chapter.
 | `removeRoles($roles)` | Remove the provided roles from the model. Similarly, you can also use `removeRole($role)`.  |  `boolean`  |  
 | `roles()` | Get the model roles  |  `RoleCollection`  |  
 | `permissions()` | Get the model permissions  |  `PermissionCollection`  |  
+| `give()` | Get the model permissions directly  |  `boolean`  |  
+| `directPermissions()` | Get permissions that were directly given to the model  |  `PermissionCollection`  |  
+| `revoke()` | Revoke permissions that were directly given to the model |  `boolean`  |  

@@ -6,7 +6,7 @@ sidebar_position: 2
 ## Overview
 The permission collection is a fluent, and convenient wrapper for working with the permission enum instances. 
 
-Most times you will find yourself working with the `Tarzancodes\RolesAndPermissions\Collections\PermissionCollection` class. This class is also an extension of laravel `Illuminate\Support\Collection`, and allows you chain laravel's collection methods to filter or alter the values.
+Most times you will find yourself working with the `Ajimoti\RolesAndPermissions\Collections\PermissionCollection` class. This class is also an extension of laravel `Illuminate\Support\Collection`, and allows you chain laravel's collection methods to filter or alter the values.
 
 :::tip
 New to laravel collections? You can read up on how to use [collections here](https://laravel.com/docs/8.x/collections)

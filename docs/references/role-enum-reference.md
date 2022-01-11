@@ -32,7 +32,7 @@ $roles->toArray(); // returns an array of all roles
 ```
 
 <!-- :::info
-The `Role::all()` method returns an instance of `Tarzancodes\RolesAndPermissions\Collections\RoleCollection` which is an extension of laravel's `Illuminate\Support\Collection`. 
+The `Role::all()` method returns an instance of `Ajimoti\RolesAndPermissions\Collections\RoleCollection` which is an extension of laravel's `Illuminate\Support\Collection`. 
 
 You can read more about this in the [Role Collection section below](https://blah.com).
 ::: -->
@@ -65,7 +65,7 @@ $roles = Role::getPermissions([Role::SuperAdmin, Role::Admin, Role::Customer]);
 ```
 
 :::note
-Both illustrations above will return an instance of `\Tarzancodes\RolesAndPermissions\Collections\PermissionCollection`
+Both illustrations above will return an instance of `\Ajimoti\RolesAndPermissions\Collections\PermissionCollection`
 
 We will touch on how to work with the permission collection in _[the permission class](https://blah.com)_
 :::
@@ -121,7 +121,7 @@ The role enum leverages on [BenSampo laravel enum](https://github.com/BenSampo/l
 
 
 :::info
-The `Tarzancodes\RolesAndPermissions\Collections\RoleCollection` and `Tarzancodes\RolesAndPermissions\Collections\PermissionCollection` which are both extensions of laravel's `Illuminate\Support\Collection`. 
+The `Ajimoti\RolesAndPermissions\Collections\RoleCollection` and `Ajimoti\RolesAndPermissions\Collections\PermissionCollection` which are both extensions of laravel's `Illuminate\Support\Collection`. 
 
 You can read more about the [Role Collection here](https://blah.com), and [Permission Collection here](https://blah.com)
 :::
