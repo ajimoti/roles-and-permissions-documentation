@@ -11,7 +11,7 @@ The following static methods are made available to any role instance.
 - [`permissions()`](#permissions-array)
 - [`getPermissions()`](#getpermissions-permissioncollection)
 - [`getDescription()`](##getdescriptionrole-string)
-- [`getTitle()`](gettitlerole-string)
+- [`getTitle()`](#gettitlerole-string)
 - [`asSelectArray()`](#asselectarray-array)
 - [`getInstancesFromValues()`](#getinstancesfromvalues-rolecollection)
 - [`collect()`](#collect-rolecollection)
