@@ -3,13 +3,12 @@ title: 'Installation'
 sidebar_position: 3
 ---
 
-<!-- ## Pre-installation -->
 You can install the package via composer:
 ```bash
 composer require ajimoti/roles-and-permissions
 ```
 
-If you have existing pivot tables that you want to apply the package on, you can add the table names to the `pivot.tables` array in the `config/roles-and-permissions.php` config file. This command below will add a `role` column to each tables.
+If you have existing pivot tables that you want to apply the package on, you can add the table names to the `pivot.tables` array in the `config/roles-and-permissions.php` config file. The command below will add a `role` column to every pivot table provided in the array.
 
 Run the command below, then you are set to use the package.
 
@@ -23,6 +22,12 @@ The above command does the following:
 - Creates a `model_role` table which will be used to link `models` and `roles`.
 - Creates a `model_permission` table which will be used to link `models` and `permissions`.
 - Adds a `role` column to every pivot table listed in the `pivot.tables` array on the `config/roles-and-permissions.php` (if any).
+
+:::caution
+When the `php artisan roles:install` command is ran, the command will also attempt to run the migration command.
+
+Ensure you do not have migration files that you are not ready to run.
+:::
 
 ## After installation
 After installing the package, a `Ajimoti\RolesAndPermissions\HasRoles` trait is made available to your application. This trait enables smooth communication between your models and the package.

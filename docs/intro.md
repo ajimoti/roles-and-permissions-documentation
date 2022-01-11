@@ -17,7 +17,7 @@ Built and written by [Ajimoti Ibukun](https://www.linkedin.com/in/ibukun-ajimoti
 
 <!-- ### Basic Usage (on a Model) -->
 ### On a Model
-The example blow explains how to use the package on a model after installation.  
+The example below explains how to use the package on a model after installation.  
 
 ```php title="app\Http\Controllers\HomeController.php"
 use App\Enums\Role;
@@ -46,7 +46,7 @@ use App\Enums\Role;
 use App\Enums\Permission;
 
 // Sample merchant
-$merchant  =  Merchant::where('name', 'wallmart')->first();
+$merchant = Merchant::where('name', 'wallmart')->first();
 
 // Assign a 'Super Admin' role to this user on the selected merchant (wallmart)
 $user->of($merchant)->assign(Role::SuperAdmin);
