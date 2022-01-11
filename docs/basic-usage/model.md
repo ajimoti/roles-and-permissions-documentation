@@ -38,7 +38,7 @@ From the example above, we have imported the `HasRole` trait, and used it in the
 After assigned roles, the model inherits the permissions associated with the assigned roles.
 
 :::note
-You will later learn how to associate permissions with roles in the [enum files section](https://blah.com).
+You will later learn how to associate permissions with roles in the [enum files section](/docs/enums/the-role-enum).
 :::
 
 ## Usage

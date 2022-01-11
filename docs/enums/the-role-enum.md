@@ -69,7 +69,7 @@ From the above class, the constants `SuperAdmin`, `Admin` and `Customer` are the
 From the table, you will notice that each role holds the exact permissions assigned to them in the `permissions()` method. This means any model assigned the **`SuperAdmin`** role **will not** inherit the **`Admin`**, and **`Customer`** permissions, same applies to the **Admin** role.
 
 :::info
-If you want the senior level roles to inherit the permissions of the lower level roles, _(i.e **`SuperAdmin`** role should have both **`Admin`** and **`Customer`** permissions)_, visit the [roles in hierarchy](https://blah.com) section to better understand how to achieve this.
+If you want the senior level roles to inherit the permissions of the lower level roles, _(i.e **`SuperAdmin`** role should have both **`Admin`** and **`Customer`** permissions)_, visit the [roles in hierarchy](/docs/enums/hierarchy) section to better understand how to achieve this.
 :::
 
 
@@ -92,7 +92,7 @@ $roles = Role::all(); // returns an instance of Ajimoti\RolesAndPermissions\Coll
 ```
 
 :::note
-You will learn more about `Ajimoti\RolesAndPermissions\Collections\RoleCollection` in the [collections section](https://blah.com)
+You will learn more about `Ajimoti\RolesAndPermissions\Collections\RoleCollection` in the [collections section](/docs/collections/role-collection)
 :::
 
 ## Instantiation
@@ -138,7 +138,7 @@ Below is a table illustrating each property type and what they represent
 | `permissions` | A collection of the role permissions. |  `PermissionCollection`  | 
 
 :::tip
-The `title`, and `description` values can both be set to custom values. You will learn how to do this on the [role enum reference](https://blah.com) page.
+The `title`, and `description` values can both be set to custom values. You will learn how to do this on the [role enum reference](/docs/references/role-enum-reference) page.
 :::
 
 

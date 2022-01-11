@@ -7,7 +7,7 @@ title: 'Many to many (extended)'
 There are cases where you will have extra columns on your pivot table, and want to set values for them while assigning roles. Or you may want to check for permissions based on the value of a column. This section explains how to go about this.
 
 ## Quick Sample
-Using the same _merchants_ and _users_ example in the [many to many relationship](https:://blah.com) section, but in this case, the following rules applies:
+Using the same _merchants_ and _users_ example in the [many to many relationship](/docs/basic-usage/many-to-many-relationship) section, but in this case, the following rules applies:
 
 - Each merchant have departments
 - Users can belong to many departments in a merchant

@@ -31,13 +31,6 @@ foreach ($roles as $role) {
 $roles->toArray(); // returns an array of all roles
 ```
 
-<!-- :::info
-The `Role::all()` method returns an instance of `Ajimoti\RolesAndPermissions\Collections\RoleCollection` which is an extension of laravel's `Illuminate\Support\Collection`. 
-
-You can read more about this in the [Role Collection section below](https://blah.com).
-::: -->
-
-
 ### permissions(): array
 Get all available roles, and their respective permissions as a multidimensional array.
 ```php
@@ -67,7 +60,7 @@ $roles = Role::getPermissions([Role::SuperAdmin, Role::Admin, Role::Customer]);
 :::note
 Both illustrations above will return an instance of `\Ajimoti\RolesAndPermissions\Collections\PermissionCollection`
 
-We will touch on how to work with the permission collection in _[the permission class](https://blah.com)_
+We have touched on how to work with the permission collection in _[the permission class](/docs/collections/permission-collection)_
 :::
 
 ### getDescription($role): string
@@ -123,5 +116,5 @@ The role enum leverages on [BenSampo laravel enum](https://github.com/BenSampo/l
 :::info
 The `Ajimoti\RolesAndPermissions\Collections\RoleCollection` and `Ajimoti\RolesAndPermissions\Collections\PermissionCollection` which are both extensions of laravel's `Illuminate\Support\Collection`. 
 
-You can read more about the [Role Collection here](https://blah.com), and [Permission Collection here](https://blah.com)
+You can read more about the [Role Collection here](/docs/collections/role-collection), and [Permission Collection here](/docs/collections/permission-collection)
 :::

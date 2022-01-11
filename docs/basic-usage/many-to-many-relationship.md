@@ -46,12 +46,6 @@ Alternatively, you can use any name of your choice, but ensure you update the ne
 It is important to note that the value set to the `column_name` key is what will be used on every pivot table of the application. Similarly, this value is what is used by the `model_role` table.
 :::
 
-<!-- :::caution
-For the package to work fine, ensure you do not have any of the following methods in your model file, as this will interfere with the methods added by the trait. 
-
-`assign()`, `of()` `holds()`, `hasRole()`, `hasRoles()`, `authorize()`, `authorizeRole()`, `authorizeRoles()`, `removeRole()`, `removeRoles()`, `modelRoles()`
-:::  -->
-
 ## Quick Sample
 The first step is to import the `Ajimoti\RolesAndPermissions\HasRoles` trait, and have a `belongs-to-many` relationship of the pivot table on the model.
 
@@ -77,7 +71,7 @@ After importing the `HasRoles` trait and having the `BelongsToMany` relationship
 
 After doing the above, the `HasRole` trait provides a `of()` method that can be used to perform roles and permissions related logic between two models via the `belongs to many` relationship.
 
-The `of()` method returns an instance of `Ajimoti\RolesAndPermissions\Repositories\BelongsToManyRepository` class, which also has all the [available methods](https://blah.com).
+The `of()` method returns an instance of `Ajimoti\RolesAndPermissions\Repositories\BelongsToManyRepository` class, which also has most of the [available methods](/docs/installation#available-methods) except `give()` `directPermissions()`, and `revoke()`.
 
 :::info 
 When the `of()` method is chained to a model, the package will automatically use Laravel relationship naming convention to guess the relationship name. Alternatively you can pass the relationship name as the second argument.

@@ -60,7 +60,7 @@ SuperAdmin > Admin > Customer
 :::caution
 It is important that the roles in the `permissions()` method appear in the same order as they are declared. 
 
-If not an `Ajimoti\RolesAndPermissions\Exceptions\InvalidRoleHierarchyException`  will be thrown. You can checkout the [exception section](https://blah.com) for better understanding.
+If not an `Ajimoti\RolesAndPermissions\Exceptions\InvalidRoleHierarchyException`  will be thrown, therefore ensure your roles appear in the same order they were declared.
 :::
 
 ## Getting other roles

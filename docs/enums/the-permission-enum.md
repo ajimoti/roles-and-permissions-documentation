@@ -8,7 +8,7 @@ Similar to the role enum, the package also ships with a `app\Enums\Permission.ph
 As you have already learned, permissions are defined as constants in the `app\Enums\Permission.php` class, and can be associated with roles in the `permissions()` method of all role enum file.
 
 :::info
-There are cases where you might have to use multiple permission enum files in your application. The [configuration section](https://blah.com) gives better explanation on how to navigate your way around this. 
+There are cases where you might have to use multiple permission enum files in your application. The [using multiple permission enums section](/docs/enums/the-permission-enum#using-multiple-permission-enums) gives better explanation on how to navigate your way around this. 
 :::
 
 ## File Structure
@@ -42,7 +42,7 @@ $permissions = Permission::all(); // returns an instance of Ajimoti\RolesAndPerm
 ```
 
 :::note
-You will learn more about `Ajimoti\RolesAndPermissions\Collections\PermissionCollection` in the [collections section](https://blah.com)
+You will learn more about `Ajimoti\RolesAndPermissions\Collections\PermissionCollection` in the [collections section](/docs/collections/permission-collection)
 :::
 
 ## Instantiation
@@ -84,7 +84,7 @@ Below is a table illustrating each property type and what they represent
 | `description` | A description of the permission. By default this will return the `title` property prefixed with `Can`. |  `string`  | 
 
 :::tip
-The `title`, and `description` values can both be set to custom values. You will learn how to do this on the [permissions enum reference](https://blah.com) page.
+The `title`, and `description` values can both be set to custom values. You will learn how to do this on the [customizing the description and title](/docs/enums/the-permission-enum#customizing-the-description-and-title) page.
 :::
 
 

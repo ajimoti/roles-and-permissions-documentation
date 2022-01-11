@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Laravel roles and permissions',
   tagline: 'Works great on many-to-many relationships',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://roles.ajimoti.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -45,7 +45,7 @@ const config = {
       navbar: {
         title: 'Home',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'laravel roles and permissions',
           src: 'img/logo.svg',
         },
         items: [

@@ -31,7 +31,7 @@ $permissions->toArray(); // returns an array of all permissions
 :::note
 Both illustrations above will return an instance of `\Ajimoti\RolesAndPermissions\Collections\PermissionCollection`
 
-We will touch on how to work with the permission collection in _[the permission class](https://blah.com)_
+We have touched on how to work with the permission collection on _[the permission class page](/docs/enums/the-permission-enum)_
 :::
 
 ### getDescription($permission): string
@@ -77,7 +77,7 @@ The permission enum leverages on [BenSampo laravel enum](https://github.com/BenS
 
 
 :::info
-The `Ajimoti\RolesAndPermissions\Collections\PermissionCollection` and `Ajimoti\RolesAndPermissions\Collections\PermissionCollection` which are both extensions of laravel's `Illuminate\Support\Collection`. 
+The `Ajimoti\RolesAndPermissions\Collections\RoleCollection` and `Ajimoti\RolesAndPermissions\Collections\PermissionCollection` which are both extensions of laravel's `Illuminate\Support\Collection`. 
 
-You can read more about the [Permission Collection here](https://blah.com), and [Permission Collection here](https://blah.com)
+You can read more about the [role Collection here](docs/collections/role-collection), and [permission Collection here](/docs/collections/permission-collection)
 :::
