@@ -24,13 +24,13 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/ajimoti/roles-and-permissions-documentation',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/ajimoti/roles-and-permissions-documentation',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -43,7 +43,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Ajimoti',
+        title: 'Home',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
@@ -57,7 +57,7 @@ const config = {
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/ajimoti/roles-and-permissions-documentation',
             label: 'GitHub',
             position: 'right',
           },
@@ -76,12 +76,12 @@ const config = {
             ],
           },
           {
-            title: 'Community',
+            title: 'About Creator',
             items: [
-              // {
-              //   label: 'Stack Overflow',
-              //   href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              // },
+              {
+                label: 'Github',
+                href: 'https://github.com/ajimoti',
+              },
               {
                 label: 'Linkedin',
                 href: 'https://www.linkedin.com/in/ibukun-ajimoti-3420a786/',
@@ -101,7 +101,7 @@ const config = {
               // },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/ajimoti/roles-and-permissions-documentation',
               },
             ],
           },
