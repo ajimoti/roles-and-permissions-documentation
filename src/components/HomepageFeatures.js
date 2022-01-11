@@ -10,8 +10,6 @@ const FeatureList = [
       <>
         Takes less than 5 minutes to install, and get start assigning roles and permissions.
         No need to write any code.
-        {/* The simple roles and permissions package for laravel applications.
-        Supports with <code>many-to-many</code> relationships (pivot tables). */}
       </>
     ),
   },

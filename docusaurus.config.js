@@ -13,8 +13,8 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'ajimoti', // Usually your GitHub org/user name.
+  projectName: 'roles-and-permissions', // Usually your repo name.
 
   presets: [
     [
@@ -24,7 +24,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/ajimoti/roles-and-permissions-documentation',
+          editUrl: 'https://github.com/ajimoti/roles-and-permissions',
         },
         blog: {
           showReadingTime: true,
