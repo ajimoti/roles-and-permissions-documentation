@@ -72,6 +72,13 @@ We will touch on how to use each one of them in the next chapter.
 | `removeRoles($roles)` | Remove the provided roles from the model. Similarly, you can also use `removeRole($role)`.  |  `boolean`  |  
 | `roles()` | Get the model roles  |  `RoleCollection`  |  
 | `permissions()` | Get the model permissions  |  `PermissionCollection`  |  
+
+
+### Only on models
+The following methods are only available when using the package on a model. They are not available on a `many-to-many` relationship.
+
+| Method | Description |  Response Type |
+| ----------- | ----------- | ----------- |  
 | `give()` | Get the model permissions directly  |  `boolean`  |  
 | `directPermissions()` | Get permissions that were directly given to the model  |  `PermissionCollection`  |  
 | `revoke()` | Revoke permissions that were directly given to the model |  `boolean`  |  
