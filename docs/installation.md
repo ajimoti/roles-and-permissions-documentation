@@ -35,7 +35,7 @@ After installing the package, a `Ajimoti\RolesAndPermissions\HasRoles` trait is 
 ### Importing the trait:
 To assign roles and permissions to an eloquent object, you have to import the trait in the eloquent class.
 
-For better understanding, we will be using the `App\Models\User` model in most of our examples, but the package use _**is not**_ limited to the user model alone, it can be used on any eloquent model.
+For better understanding, we will be using the `App\Models\User` model in most of our examples, but the package's use _**is not**_ limited to the user model alone, it can be used on any eloquent model.
 
 Additionally, for the package to work fine, your model **must not** have any of the methods listed below as this will interfere with how the package interacts with your model:
 

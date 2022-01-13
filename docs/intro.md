@@ -38,7 +38,7 @@ $user->holds(Permission::DeleteTransactions, Permission::BlockUsers);
 
 ### Pivot table (many to many relationship)
 This demonstrates how to use the package on a `many to many` relationship.
-In this example, we assume we have a `merchant` relationship in our `User` model. And this relationship returns an instance of Laravel's `BelongsToMany` class.
+In this example, we assume that we have a `merchant` relationship on our `User` model. And that the relationship returns an instance of Laravel's `BelongsToMany` class.
 
 Import the `App\Enums\Role` and `App\Enums\Permission` class.
 ```php title="app\Http\Controllers\MerchantController.php"

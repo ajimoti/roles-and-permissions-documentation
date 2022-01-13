@@ -45,7 +45,7 @@ You will later learn how to associate permissions with roles in the [enum files 
 Examples of how to use the methods made available by the trait
 ### assign()
 Assign roles to a model. You can assign one or multiple roles to a model. 
-The method can accept a role constant, or multiple role constants, or an array of role constants, or a collection of the roles. 
+The method can accept one or multiple roles, or an array of roles, or a collection of the roles. 
 ```php
 // give the user a super admin role
 $user->assign(Role::SuperAdmin); // returns boolean
@@ -79,7 +79,7 @@ foreach($user->roles() as $role) {
 }
 ```
 
-From the above snippet, you every `$role` variable is an instance of the `App\Enums\Role` enum class. 
+From the above snippet, every `$role` variable is an instance of the `App\Enums\Role` enum class. 
 
 Below is a table explaining how the properties of the object are set.
 
@@ -91,7 +91,7 @@ Below is a table explaining how the properties of the object are set.
 |`description`|This is a conversion of the constant to `constant` to `sentence case`. You can use the `getDescription($value)` method to overwrite this behavior. _(you will learn more about this on the enum page)_. |
 
 :::tip
-`Ajimoti\RolesAndPermissions\Collections\RoleCollection` is an extension of laravel `Illuminate\Support\Collection`. This means you can treat the `roles()` response as a laravel collection. You can chain any method to e.g `$user->roles()->toArray()`
+`Ajimoti\RolesAndPermissions\Collections\RoleCollection` is an extension of laravel `Illuminate\Support\Collection`. This means you can treat the `roles()` response as a laravel collection. You can chain any collection method like so: e.g `$user->roles()->toArray()`
 
 We will better explain how to use the `RoleCollection` in the digging deep section.
 ::: 
@@ -106,7 +106,7 @@ The `permissions()` method returns a collection of all permissions associated wi
 
 For instance, if the `$user` model above has been assigned a `SuperAdmin` and `Admin` role, a collection of the `SuperAdmin` and `Admin` permissions will be returned.
 
-Similarly, you can get the permissions of a user by calling the `getPermissions()` method on the role collection like so: `$user->roles()->getPermissions();`
+Similarly, you can get the permissions of a user by calling the `getPermissions()` method on a role collection like so: `$user->roles()->getPermissions();`
 
 ### holds($permissions)
 Check if the model holds all the provided permissions.
