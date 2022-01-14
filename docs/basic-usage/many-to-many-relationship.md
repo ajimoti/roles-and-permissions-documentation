@@ -8,7 +8,7 @@ Using the roles and permissions package on a `many-to-many` relationship is slig
 
 
 ## Prerequisites
-The following are required for the package to work correctly on a `many-to-may` relationship:
+The following are required for the package to work correctly on a `many-to-many` relationship:
 - A pivot table is needed
 - The pivot table **MUST** have a `role` column. This column will be used to keep track of the role assigned to the relationship. (if you plan on using a different column name, you can set this in the config file).
 - A `belongsToMany` relationship for the pivot table must exists on one of the models.
