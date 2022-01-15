@@ -143,6 +143,12 @@ Check if the model has the provided permissions at the merchant.
 $user->of($merchant)->holds(Permission::DeleteProducts); // returns boolean
 ```
 
+You can also check for a single permission like this:
+```php 
+$user->of($merchant)->canDeleteProducts(); // checks if the user has permissions to delete products on the merchant.
+
+// $user->of($merchant)->can{permission_key}();
+```
 You can decide to check for multiple permissions at once; the method will only return `true` when the `$user` of the `$merchant` has all the permissions passed. If the model does not have any one of the permissions passed, it returns `false` .
 ```php
 // Check if the user has any of the following permissions at the provided merchant
@@ -167,6 +173,12 @@ When multiple roles are passed, the package will only return `true` if the model
 $user->hasRole(Role::SuperAdmin, Role::Customer) // returns true if the user has all roles
 ```
 
+Similarly, you can choose to check for a single role like this:
+```php 
+$user->of($merchant)->isSuperAdmin(); // checks if the user has a super admin role on the merchant.
+
+// $user->of($merchant)->is{role_key}();
+```
 ### authorize($permissions)
 For cases where you want to throw an exception when a `model` of another `model` does not have the permission, or multiple permissions.
 

@@ -116,6 +116,13 @@ Check if the model holds all the provided permissions.
 $user->holds(Permission::DeleteProducts); // returns boolean
 ```
 
+Similarly, you can also do this:
+```php 
+$user->canDeleteProducts(); // checks if the model has permission to delete products.
+
+// $model->can{permission_key}();
+```
+
 You can decide to check for multiple permissions at once; the method will only return `true` when the model has all the permissions passed. If the model does not have at least one of the permissions passed, it returns `false` .
 ```php
 // Check if the user has any of the following permissions.
@@ -157,6 +164,12 @@ For convenience and better readability, you can also choose to use the singulari
 $user->hasRole(Role::SuperAdmin) // returns true if the user has the provided role
 ```
 
+You can also check for a single role like this:
+```php 
+$user->isSuperAdmin(); // checks if the model is a super admin.
+
+// $model->is{role_key}();
+```
 ### authorize($permissions)
 For cases where you want to throw an exception when a model does not have a permission, or multiple permissions.
 

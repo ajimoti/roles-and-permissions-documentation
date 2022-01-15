@@ -29,8 +29,14 @@ $user->assign(Role::SuperAdmin);
 // Check if the user has the role
 $user->hasRole(Role::SuperAdmin);
 
+//Similar this will check if the model has a `superAdmin` role
+$user->isSuperAdmin();
+
 // Check if the user can perform a operation
 $user->can(Permission::DeleteTransactions);
+
+// Similarly, this will check if the model has permissions to delete transactions
+$user->canDeleteTransactions();
 
 // Check if the user has multiple permissions
 $user->holds(Permission::DeleteTransactions, Permission::BlockUsers);
@@ -54,8 +60,14 @@ $user->of($merchant)->assign(Role::SuperAdmin);
 // Check if the user has a super admin role on the selected merchant (wallmart)
 $user->of($merchant)->hasRole(Role::SuperAdmin);
 
+// Similar this will check if the model has a `superAdmin` role
+$user->of($merchant)->isSuperAdmin();
+
 // Check if the user can 'delete transactions' on the selected merchant (wallmart)
 $user->of($merchant)->can(Permission::DeleteTransactions);
+
+// Similarly, this will check if the user has permissions to delete transactions
+$user->of($merchant)->canDeleteTransactions();
 
 // Check if the user has multiple permissions on the selected merchant (wallmart)
 $user->of($merchant)->holds(Permission::DeleteTransactions, Permission::BlockUsers);
