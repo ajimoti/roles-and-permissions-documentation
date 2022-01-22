@@ -1,7 +1,3 @@
-# Documentation for the laravel roles and permissions package
-
-This repository contains the official documentation for the [laravel roles and permissions package](https://github.com/ajimoti/roles-and-permissions/).
-### Start the docs 
-```
-npx docusaurus start
-```
+"(Blasphemous!)' Arguile Remote Mission Squad
+Mobile Armoured Strike Kommand
+Bruce Warfield Blue Banchea
