@@ -9,7 +9,7 @@ sidebar_position: 1
 
 This package allows you to assign roles and permissions to any laravel model, or on a pivot table (`many to many relationship`).
 
-Built and written by [Ajimoti Ibukun](https://www.linkedin.com/in/ibukun-ajimoti-3420a786/)
+Built and written by [Ajimoti Ibukun](https://www.linkedin.com/in/john-ajimoti-3420a786/)
 
 ## Quick Samples
 
