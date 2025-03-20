@@ -2,6 +2,6 @@
 
 This repository contains the official documentation for the [laravel roles and permissions package](https://github.com/ajimoti/roles-and-permissions/).
 ### Start the docs 
-```
+```bash
 npx docusaurus start
 ```
