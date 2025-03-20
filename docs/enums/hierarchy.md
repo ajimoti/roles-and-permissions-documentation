@@ -20,9 +20,9 @@ use Ajimoti\RolesAndPermissions\Helpers\BaseRole;
 
 final class Role extends BaseRole
 {
-    const SuperAdmin = 'super_admin';
-    const Admin = 'admin';
-    const Customer = 'customer';
+    const SUPER_ADMIN = 'super_admin';
+    const ADMIN = 'admin';
+    const CUSTOMER = 'customer';
 
     protected static $useHierarchy = true;
 
@@ -30,32 +30,32 @@ final class Role extends BaseRole
     final public static function permissions(): array
     {
         return [
-            self::SuperAdmin  => [
+            self::SUPER_ADMIN  => [
                 Permission::DeleteProducts,
             ],
-            self::Admin  => [
+            self::ADMIN  => [
                 Permission::EditProducts,
             ],
-            self::Customer  => [
+            self::CUSTOMER  => [
                 Permission::BuyProducts,
             ],
         ];
     }
 }
 ```
-From the example above, the `SuperAdmin` role is know to be the highest level role because it is the first constant declared in the class, while the `Customer` role is believed to be the lowest level role as it appears last.
+From the example above, the `SUPER_ADMIN` role is know to be the highest level role because it is the first constant declared in the class, while the `CUSTOMER` role is believed to be the lowest level role as it appears last.
 
 ```php title='Hierarchy'
-SuperAdmin > Admin > Customer
+SUPER_ADMIN > ADMIN > CUSTOMER
 ```
 
 **Hence, their permissions are as follows:**
 
 | Role | Permissions |
 | ----------- | ----------- |  
-| **`SuperAdmin`** | *Delete products*, *Edit products*, *Buy products*  |
-| **`Admin`** | *Edit products*, *Buy products*  | 
-| **`Customer`** | *Buy products* | 
+| **`SUPER_ADMIN`** | *Delete products*, *Edit products*, *Buy products*  |
+| **`ADMIN`** | *Edit products*, *Buy products*  | 
+| **`CUSTOMER`** | *Buy products* | 
 
 :::caution
 It is important that the roles in the `permissions()` method appear in the same order as they are declared. 
@@ -68,21 +68,21 @@ You may want to get the lower or higher roles of a selected role. Below is how t
 
 ```php
 // get a RoleCollection of roles lower than the selected role; ('admin', 'customer')
-Role::hold(Role::SuperAdmin)->getLowerRoles(); 
+Role::hold(Role::SUPER_ADMIN)->getLowerRoles(); 
 
 // get a RoleCollection of roles higher than the selected role; ('super_admin', 'admin')
-Role::hold(Role::Customer)->getHigherRoles(); 
+Role::hold(Role::CUSTOMER)->getHigherRoles(); 
 ```
 
 You can chain the `getPermissions()` method to get all permissions of the collection like so:
 
 ```php
 // get a collection of every permission associated with a role lower than the selected role
-Role::hold(Role::SuperAdmin)->getLowerRoles()->getPermissions(); 
+Role::hold(Role::SUPER_ADMIN)->getLowerRoles()->getPermissions(); 
 ```
 
 The above will return a collection of every permission of the lower roles. Similar to how laravel collections work, you can chain the `->toArray()` method to the collection if you want your response as an array:
 ```php
 // get an array of every permission associated with a role lower than the selected role
-Role::hold(Role::SuperAdmin)->getLowerRoles()->getPermissions()->toArray();
+Role::hold(Role::SUPER_ADMIN)->getLowerRoles()->getPermissions()->toArray();
 ```

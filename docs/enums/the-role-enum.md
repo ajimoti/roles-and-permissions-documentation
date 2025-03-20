@@ -24,9 +24,9 @@ use Ajimoti\RolesAndPermissions\Helpers\BaseRole;
 
 final class Role extends BaseRole
 {
-	const SuperAdmin = 'super_admin';
-	const Admin = 'admin';
-	const Customer = 'customer';
+	const SUPER_ADMIN = 'super_admin';
+	const ADMIN = 'admin';
+	const CUSTOMER = 'customer';
 
     /**
     * Set available roles and their permissions.
@@ -36,19 +36,19 @@ final class Role extends BaseRole
     final public static function permissions(): array
     {
         return [
-            self::SuperAdmin  => [
+            self::SUPER_ADMIN  => [
                 Permission::DeleteProducts, 
                 Permission::DeleteTransactions, 
                 Permission::ViewTransactions,
             ],
 
-            self::Admin  => [
+            self::ADMIN  => [
                 Permission::EditProducts, 
                 Permission::CreateProducts, 
                 Permission::MarkAsSoldOut
             ],
 
-            self::Customer  => [
+            self::CUSTOMER  => [
                 Permission::BuyProducts,
             ],
         ];
@@ -56,20 +56,20 @@ final class Role extends BaseRole
 }
 ```
 
-From the above class, the constants `SuperAdmin`, `Admin` and `Customer` are the declared roles, and as you can see, each role has been assigned permissions in the `permissions()` method.
+From the above class, the constants `SUPER_ADMIN`, `ADMIN` and `CUSTOMER` are the declared roles, and as you can see, each role has been assigned permissions in the `permissions()` method.
 
 **The permissions are as follows:**
 
 | Role | Permissions |
 | ----------- | ----------- |  
-| **`SuperAdmin`** | *Delete products*, *Delete transactions*, *View transactions*  |
-| **`Admin`** | *Edit products*, *Create products*, *Mark as sold out*  | 
-| **`Customer`** | *buy products* | 
+| **`SUPER_ADMIN`** | *Delete products*, *Delete transactions*, *View transactions*  |
+| **`ADMIN`** | *Edit products*, *Create products*, *Mark as sold out*  | 
+| **`CUSTOMER`** | *buy products* | 
 
-From the table, you will notice that each role holds the exact permissions assigned to them in the `permissions()` method. This means any model assigned the **`SuperAdmin`** role **will not** inherit the **`Admin`**, and **`Customer`** permissions, same applies to the **Admin** role.
+From the table, you will notice that each role holds the exact permissions assigned to them in the `permissions()` method. This means any model assigned the **`SUPER_ADMIN`** role **will not** inherit the **`ADMIN`**, and **`CUSTOMER`** permissions, same applies to the **ADMIN** role.
 
 :::info
-If you want the senior level roles to inherit the permissions of the lower level roles, _(i.e **`SuperAdmin`** role should have both **`Admin`** and **`Customer`** permissions)_, visit the [roles in hierarchy](/docs/enums/hierarchy) section to better understand how to achieve this.
+If you want the senior level roles to inherit the permissions of the lower level roles, _(i.e **`SUPER_ADMIN`** role should have both **`ADMIN`** and **`CUSTOMER`** permissions)_, visit the [roles in hierarchy](/docs/enums/hierarchy) section to better understand how to achieve this.
 :::
 
 
@@ -78,9 +78,9 @@ You can also decide to declare roles as integer values instead of strings. But f
 **For example:**
 ```php title="app\Enums\Role.php"
 // ...
-    const  SuperAdmin = 1;
-    const  Admin = 2;
-    const  Customer = 3;
+    const  SUPER_ADMIN = 1;
+    const  ADMIN = 2;
+    const  CUSTOMER = 3;
 // ...
 ```
 
@@ -102,28 +102,28 @@ Additionally, it introduces the ability to pass them between functions with the 
 
 ```php title='Role Instances'
 // Standard new PHP class, passing the desired enum value as a parameter
-$roleInstance = new Role(Role::SuperAdmin);
+$roleInstance = new Role(Role::SUPER_ADMIN);
 
 // Same as the constructor, instantiate by value
-$roleInstance = Role::fromValue(Role::SuperAdmin);
+$roleInstance = Role::fromValue(Role::SUPER_ADMIN);
 
 // Use an enum key instead of its value
-$roleInstance = Role::fromKey('SuperAdmin');
+$roleInstance = Role::fromKey('SUPER_ADMIN');
 
 // Statically calling the key name as a method, utilizing __callStatic magic
-$roleInstance = Role::SuperAdmin();
+$roleInstance = Role::SUPER_ADMIN();
 ```
 
 ### Instance properties
 Once you have a role instance, you can access the `key`, `value`, `title`, `description` and `permissions` of the role as properties.
 
 ```php title='Sample Role Instance'
-$roleInstance = new Role(Role::SuperAdmin);
+$roleInstance = new Role(Role::SUPER_ADMIN);
 
-$roleInstance->key; // SuperAdmin 
+$roleInstance->key; // SUPER_ADMIN 
 $roleInstance->value; // super_admin 
-$roleInstance->title; // Super admin 
-$roleInstance->description; // Super admin 
+$roleInstance->title; // SUPER ADMIN 
+$roleInstance->description; // SUPER ADMIN 
 $roleInstance->permissions; // instance of PermissionCollection 
 ```
 
@@ -156,8 +156,8 @@ You can override this behavior by writing custom descriptions or titles for the 
 public static function getDescription($value): string
 {
 	return match ($value) {
-		self::SuperAdmin => 'Only company owners are given this role',
-		self::Admin => "These are senior managers that oversee the company's operations",
+		self::SUPER_ADMIN => 'Only company owners are given this role',
+		self::ADMIN => "These are senior managers that oversee the company's operations",
 		default=> parent::getDescription($value), // returns the `sentence case'
 	};
 }
@@ -170,17 +170,17 @@ public static function getDescription($value): string
 public static function getTitle($value): string
 {
 	return match ($value) {
-		self::SuperAdmin => 'CEO',
-		self::Admin => "Admin (Managers)",
+		self::SUPER_ADMIN => 'CEO',
+		self::ADMIN => "Admin (Managers)",
 		default=> parent::getDescription($value), // returns the `sentence case'
 	};
 }
 ```
 The above will give something like this
 ```php {5,6}
-$roleInstance = new Role(Role::SuperAdmin);
+$roleInstance = new Role(Role::SUPER_ADMIN);
 
-$roleInstance->key; // SuperAdmin 
+$roleInstance->key; // SUPER_ADMIN 
 $roleInstance->value; // super_admin 
 $roleInstance->title; // CEO 
 $roleInstance->description; // 'Only company owners are given this role' 
@@ -229,14 +229,14 @@ From the sample config file above, the package will always use the `MerchantUser
 
 ```php title='Example explained'
 // The following will work fine
-$user->of($merchant)->assign(MerchantUserRole::SuperAdmin);
-$merchant->of($user)->assign(MerchantUserRole::SuperAdmin);
-$user->assign(Role::SuperAdmin);
+$user->of($merchant)->assign(MerchantUserRole::SUPER_ADMIN);
+$merchant->of($user)->assign(MerchantUserRole::SUPER_ADMIN);
+$user->assign(Role::SUPER_ADMIN);
 
 // =============
 
 // This will work NOT, as we are referencing the wrong role enum
-$user->of($merchant)->assign(Role::SuperAdmin);
-$merchant->of($user)->assign(Role::SuperAdmin);
-$user->assign(MerchantUserRole::SuperAdmin);
+$user->of($merchant)->assign(Role::SUPER_ADMIN);
+$merchant->of($user)->assign(Role::SUPER_ADMIN);
+$user->assign(MerchantUserRole::SUPER_ADMIN);
 ```

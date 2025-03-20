@@ -23,12 +23,12 @@ use Ajimoti\RolesAndPermissions\Helpers\BasePermission;
 
 final class Permission extends BasePermission
 {
-    const DeleteProducts = 'delete_products';
-    const DeleteTransactions = 'delete_transactions';
-    const ViewTransactions = 'view_transactions';
-    const EditProducts = 'edit_products';
-    const MarkAsSoldOut = 'mark_as_sold_out';
-    const BuyProducts = 'buy_products';
+    const DELETE_PRODUCTS = 'delete_products';
+    const DELETE_TRANSACTIONS = 'delete_transactions';
+    const VIEW_TRANSACTIONS = 'view_transactions';
+    const EDIT_PRODUCTS = 'edit_products';
+    const MARK_AS_SOLD_OUT = 'mark_as_sold_out';
+    const BUY_PRODUCTS = 'buy_products';
 }
 ```
 
@@ -50,25 +50,25 @@ For convenience, enums can be instantiated in multiple ways. It is useful to ins
 
 ```php title='Permission Instances'
 // Standard new PHP class, passing the desired enum value as a parameter
-$permissionInstance = new Permission(Permission::DeleteTransactions);
+$permissionInstance = new Permission(Permission::DELETE_TRANSACTIONS);
 
 // Same as the constructor, instantiate by value
-$permissionInstance = Permission::fromValue(Permission::DeleteTransactions);
+$permissionInstance = Permission::fromValue(Permission::DELETE_TRANSACTIONS);
 
 // Use an enum key instead of its value
-$permissionInstance = Permission::fromKey('DeleteTransactions');
+$permissionInstance = Permission::fromKey('DELETE_TRANSACTIONS');
 
 // Statically calling the key name as a method, utilizing __callStatic magic
-$permissionInstance = Permission::DeleteTransactions();
+$permissionInstance = Permission::DELETE_TRANSACTIONS();
 ```
 
 ### Instance properties
 Once you have a permission instance, you can access the `key`, `value`, `title`, and `description` of the permission as properties.
 
 ```php title='Sample Permission Instance'
-$permissionInstance = new Permission(Permission::DeleteTransactions);
+$permissionInstance = new Permission(Permission::DELETE_TRANSACTIONS);
 
-$permissionInstance->key; // DeleteTransactions 
+$permissionInstance->key; // DELETE_TRANSACTIONS 
 $permissionInstance->value; // delete_transactions 
 $permissionInstance->title; // Delete Transactions 
 $permissionInstance->description; // Delete Transactions 
@@ -102,8 +102,8 @@ You can override this behavior by writing custom descriptions or titles for the 
 public static function getDescription($value): string
 {
 	return match ($value) {
-		self::DeleteTransactions => 'The user can delete any transactions',
-		self::BuyProducts => "The user has an ability to buy products on the merchant e-commerce website",
+		self::DELETE_TRANSACTIONS => 'The user can delete any transactions',
+		self::BUY_PRODUCTS => "The user has an ability to buy products on the merchant e-commerce website",
 		default=> parent::getDescription($value), // returns the `sentence case'
 	};
 }
@@ -116,17 +116,17 @@ public static function getDescription($value): string
 public static function getTitle($value): string
 {
 	return match ($value) {
-		self::DeleteTransactions => 'Erase transaction',
-		self::BuyProducts => "Buy any products",
+		self::DELETE_TRANSACTIONS => 'Erase transaction',
+		self::BUY_PRODUCTS => "Buy any products",
 		default=> parent::getDescription($value), // returns the `sentence case'
 	};
 }
 ```
 The above will give something like this
 ```php {5,6}
-$roleInstance = new Permission(Permission::DeleteTransactions);
+$roleInstance = new Permission(Permission::DELETE_TRANSACTIONS);
 
-$roleInstance->key; // 'DeleteTransactions' 
+$roleInstance->key; // 'DELETE_TRANSACTIONS' 
 $roleInstance->value; // 'delete_transactions' 
 $roleInstance->title; // 'Erase transaction' 
 $roleInstance->description; // 'The user can delete any transactions'
