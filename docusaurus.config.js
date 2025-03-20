@@ -84,7 +84,7 @@ const config = {
               },
               {
                 label: 'Linkedin',
-                href: 'https://www.linkedin.com/in/ibukun-ajimoti-3420a786/',
+                href: 'https://www.linkedin.com/in/john-ajimoti-3420a786/',
               },
               {
                 label: 'Twitter',
